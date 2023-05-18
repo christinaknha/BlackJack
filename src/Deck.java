@@ -84,9 +84,10 @@ public class Deck {
                     totalValue += 10;
                     break;
                 case ACE:
-                    totalValue += 11;
-                    if (totalValue < 21){
-                        totalValue -= 10;
+                    if (totalValue + 11 < 21){
+                        totalValue += 1;
+                    } else{
+                        totalValue += 11;
                     }
                     break;
 

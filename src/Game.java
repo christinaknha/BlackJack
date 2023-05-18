@@ -98,8 +98,16 @@ public class Game {
                 if (dealerHand.cardValues() < 17) {
                     dealerHand.addCard(dealerHand.draw(playingDeck));
                     playingDeck.removeCard(0);
+                    System.out.println("Dealer draws a card.");
 
-                    if (dealerHand.cardValues() >= 21) {
+                    if (dealerHand.cardValues() > 17 && dealerHand.cardValues()<=21){
+                        System.out.println("Dealer hand looks like this: ");
+                        for (int j = 0; j < dealerHand.deckSize(); j++) {
+                            System.out.println(dealerHand.getCard(j).toString());
+                        }
+                        System.out.println("Dealer value: " + dealerHand.cardValues());
+                        break;
+                    } else if (dealerHand.cardValues() >= 21) {
                         System.out.println("Dealer has busted. You win $" + betAmount);
                         playerBalance = playerBalance + betAmount;
                         System.out.println("You now have $" + playerBalance);
